@@ -23,6 +23,9 @@ public class Tests {
         System.out.println("End JUnit Test");
     }
 
+    /**
+     * Проверка правила "Вылет до текущего момента времени"
+     */
     @Test
     public void whenWeChoiceRulesDeparture() {
         var newFlight = Rules.RulesDeparture.check(flightList);
@@ -36,6 +39,9 @@ public class Tests {
         }
     }
 
+    /**
+     * Проверка правила "Имеются сегменты с датой прилёта раньше даты вылета"
+     */
     @Test
     public void whenWeChoiceRulesSegment() {
         var newFlight = Rules.RulesSegment.check(flightList);
@@ -50,6 +56,10 @@ public class Tests {
         }
     }
 
+    /**
+     * Проверка правила "Общее время, проведённое на земле превышает два часа
+     * (время на земле — это интервал между прилётом одного сегмента и вылетом следующего за ним)"
+     */
     @Test
     public void whenWeChoiceRulesTimeBetweenSegment() {
         var newFlight = Rules.RulesTimeBetweenSegment.check(flightList);

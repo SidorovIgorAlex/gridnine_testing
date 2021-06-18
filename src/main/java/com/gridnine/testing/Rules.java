@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 public enum Rules {
 
+    /**
+     * Правило: "Вылет до текущего момента времени"
+     */
     RulesDeparture{
         public List<Flight> check(List<Flight> flights) {
             List<Flight> newFlight = new ArrayList<>();
@@ -25,6 +28,9 @@ public enum Rules {
         }
     },
 
+    /**
+     * Правило: "Имеются сегменты с датой прилёта раньше даты вылета"
+     */
     RulesSegment{
         public List<Flight> check(List<Flight> flights) {
             List<Flight> newFlight = new ArrayList<>();
@@ -40,6 +46,10 @@ public enum Rules {
         }
     },
 
+    /**
+     * Правило: "Общее время, проведённое на земле превышает два часа
+     * (время на земле — это интервал между прилётом одного сегмента и вылетом следующего за ним)"
+     */
     RulesTimeBetweenSegment {
         public List<Flight> check(List<Flight> flights) {
             List<Flight> newFlight;
